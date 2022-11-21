@@ -1,4 +1,19 @@
-{% schema  %}
+{% style  %}
+  h1 {
+    font-size: 36 px
+  }
+{% endstyle %}
+<h2>blablablalbllab</h2>
+{% if section.settings.slider-checkbox == true %}
+  <h2>{{section.settings.vidnimg-slider}}</h2>
+{% endif %}
+{%unless section.settings.video1 == blank %}
+  <video autoplay="autoplay">
+    <source src={{section.settings.video1}} type="video/mp4">
+  </video>
+{%endunless%}
+<h1>{{section.settings.video-text}}</h1>
+{%schema%}
   {
     "name": "Video and Image Slider",
     "settings": [
@@ -6,6 +21,18 @@
         "id": "vidnimg-slider",
         "type": "text",
         "label": "Add a Video and Image Slider"
+      }, {
+        "id": "slider-checkbox",
+        "type": "checkbox",
+        "label": "A checkbox"
+      }, {
+        "id": "video1",
+        "type": "url",
+        "label": "Put your video URL"
+      }, {
+        "id": "video-text",
+        "type": "text",
+        "label": "Write Something for the Video"
       }
     ],
     "templates": ["index"],
@@ -16,4 +43,4 @@
       }
     ]
   }
-{% endschema %}}
+{%endschema%}}
